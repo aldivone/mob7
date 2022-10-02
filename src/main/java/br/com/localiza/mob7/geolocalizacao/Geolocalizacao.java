@@ -28,7 +28,7 @@ public class Geolocalizacao {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GEOLOCALIZACAO")
 	private Long id;
 
-	@Column(nullable = false, length = 7)
+	@Column(nullable = false)
 	private String placa;
 
 	@Column(nullable = false)
