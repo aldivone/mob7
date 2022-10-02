@@ -1,0 +1,25 @@
+
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'), 'PONTO 1',	300	,	-25.56742701740896	,	-51.47653363645077	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 2',	300	,	-25.568056	,	-51.480278	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 3',	250	,	-25.414167	,	-51.566944	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 4',	250	,	-25.718611	,	-51.831111	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 5',	163	,	-25.37240459807051	,	-51.497342622606084	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 6',	170	,	-22.718252406214955	,	-46.78627558343578	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 7',	250	,	-25.336667	,	-51.5125	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 8',	250	,	-24.558056	,	-54.036944	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 9',	250	,	-24.940833	,	-50.793611	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 10',	250	,	-25.279167	,	-51.628333	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 11',	250	,	-25.498056	,	-49275	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 12',	250	,	-20.071389	,	-45.312222	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 13',	250	,	-21.678056	,	-43.445833	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 14',	250	,	-23.6525	,	-46.716389	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 15',	250	,	-8.112778	,	-34.933889	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 16',	250	,	-22.754444	,	-45.122778	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 17',	250	,	-25.419167	,	-51.4875	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 18',	250	,	-25.5375	,	-48.554722	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 19',	250	,	-25.152222	,	-50.132778	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 20',	250	,	-23.598889	,	-46.888611	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 21',	250	,	-22.124722	,	-43.225833	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 22',	250	,	-25.445278	,	-51.654722	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 23',	250	,	-25.547778	,	-49.307222	);
+insert into PONTO_INTERESSE(id, nome, raio, latitude, longitude) VALUES ( nextval('seq_ponto_interesse'),'PONTO 24',	350	,	-25.363333	,	-51.468333	);
