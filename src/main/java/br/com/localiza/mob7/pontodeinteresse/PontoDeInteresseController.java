@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,7 +40,7 @@ public class PontoDeInteresseController {
 	@ApiResponse(responseCode = "201", description = "Quando um novo ponto de interesse for gravado com sucesso", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = PontoDeInteresseRequest.class)))
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON })
 	public ResponseEntity<PontoDeInteresseRequest> gravarNovosPontosDeInteresse(
-			@NotNull @Parameter @Valid PontoDeInteresseRequest pontoDeInteresseRequest) {
+			@NotNull @Parameter @Valid @RequestBody PontoDeInteresseRequest pontoDeInteresseRequest) {
 		PontoDeInteresse pontoDeInteresse = pontoDeInteresseRepository
 				.save(pontoDeInteresseRequest.toPontoDeInteresse());
 		return ResponseEntity.created(URI.create("/v1/veiculos/pois" + pontoDeInteresse.getId())).build();
