@@ -1,5 +1,6 @@
 package br.com.localiza.mob7.pontodeinteresse;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,11 +26,15 @@ public class PontoDeInteresse {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PONTO_INTERESSE")
 	private Long id;
 
+	@Column(nullable = false, unique = true)
 	private String nome;
 
+	@Column(nullable = false)
 	private Integer raio;
 
+	@Column(nullable = false)
 	private Double latitude;
 
+	@Column(nullable = false)
 	private Double longitude;
 }

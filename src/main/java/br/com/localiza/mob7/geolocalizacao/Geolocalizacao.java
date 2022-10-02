@@ -2,6 +2,7 @@ package br.com.localiza.mob7.geolocalizacao;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,14 +28,18 @@ public class Geolocalizacao {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GEOLOCALIZACAO")
 	private Long id;
 
+	@Column(nullable = false, length = 7)
 	private String placa;
 
+	@Column(nullable = false)
 	private Date data;
 
 	private Integer velocidade;
 
+	@Column(nullable = false)
 	private Double longitude;
 
+	@Column(nullable = false)
 	private Double latitude;
 
 	private boolean ignicao;
