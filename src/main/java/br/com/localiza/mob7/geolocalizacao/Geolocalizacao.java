@@ -31,7 +31,7 @@ public class Geolocalizacao {
 	@Column(nullable = false)
 	private String placa;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name = "data_posicao")
 	private Date data;
 
 	private Integer velocidade;
