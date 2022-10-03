@@ -1,6 +1,7 @@
 package br.com.localiza.mob7.pontodeinteresse;
 
 import java.net.URI;
+import java.util.Date;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -32,7 +34,10 @@ public class PontoDeInteresseController {
 	@Operation(summary = "Buscar lista de resumos com a quantidade de tempo que os veículos passaram dentro de cada POI. ")
 	@ApiResponse(responseCode = "200", description = "Com a lista de pontos de interesse e seus tempos", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = PontoDeInteresseRequest.class)))
 	@GetMapping
-	public String getResumos() {
+	public String getResumos(
+			@Parameter(description = "Intervalo de data(início) para pesquisar resumo dos pontos de interesse") @RequestParam(required = false) Date dataInicio,
+			@Parameter(description = "Intervalo de data(fim) para pesquisar resumo dos pontos de interesse") @RequestParam(required = false) Date dataFim,
+			@Parameter(description = "Placa do veículo para pesquisa") @NotNull @RequestParam String placa) {
 		return "Teste dos POIs";
 	}
 
