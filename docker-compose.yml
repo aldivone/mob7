@@ -1,0 +1,32 @@
+version: "2.2"
+services:
+  
+  database:
+    container_name: database
+    image: mob7_database
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - mob7-networks
+      
+  app:
+    container_name: app
+    image: mob7_app
+    ports:
+      - 8080:8080
+    environment:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: 127.0.0.1
+      DATABASE_PORT: 5432
+    networks:
+      - mob7-networks
+    depends_on:
+      - database
+networks:
+  mob7-networks:
+    driver: bridge

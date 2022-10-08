@@ -1,0 +1,21 @@
+FROM postgres:10.21 as mob7_database
+
+WORKDIR /database
+
+COPY wait-for-pg-isready.sh /database
+COPY mob7.backup /database
+
+ENV POSTGRES_PASSWORD=postgres
+
+    #psql -U postgres -d mob7 -c "SELECT nspname FROM pg_catalog.pg_namespace;" && \
+    
+RUN cd /database && \
+    nohup bash -c "docker-entrypoint.sh postgres &" && \
+    chmod +x wait-for-pg-isready.sh && \
+    sh wait-for-pg-isready.sh && \
+    psql -U postgres -d postgres -c "CREATE DATABASE mob7;" && \
+    pg_restore -U postgres --dbname=mob7 mob7.backup --verbose && \
+    rm -rf mob7.backup
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+  CMD pg_isready -U postgres -d mob7
