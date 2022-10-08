@@ -1,0 +1,2 @@
+CREATE INDEX geolocalizacao_data_posicao_idx ON public.geolocalizacao (date_trunc('day',data_posicao));
+CREATE INDEX geolocalizacao_placa_idx ON public.geolocalizacao (placa,date_trunc('day',data_posicao));
