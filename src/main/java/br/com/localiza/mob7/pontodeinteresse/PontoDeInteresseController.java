@@ -2,12 +2,14 @@ package br.com.localiza.mob7.pontodeinteresse;
 
 import java.net.URI;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,14 +33,21 @@ public class PontoDeInteresseController {
 	@Autowired
 	private PontoDeInteresseRepository pontoDeInteresseRepository;
 
-	@Operation(summary = "Buscar lista de resumos com a quantidade de tempo que os veículos passaram dentro de cada POI. ")
-	@ApiResponse(responseCode = "200", description = "Com a lista de pontos de interesse e seus tempos", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = PontoDeInteresseRequest.class)))
+	@Autowired
+	private PontoDeInteresseService pontoDeInteresseService;
+
+	@Operation(summary = "Listar a quantidade de tempo que os veículos passaram dentro de cada POI.")
+	@ApiResponse(responseCode = "200", description = "Com a lista de pontos de interesse e tempo que o veículo dentro da área", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = PontoDeInteresseRequest.class)))
 	@GetMapping
-	public String getResumos(
-			@Parameter(description = "Intervalo de data(início) para pesquisar resumo dos pontos de interesse") @RequestParam(required = false) Date dataInicio,
-			@Parameter(description = "Intervalo de data(fim) para pesquisar resumo dos pontos de interesse") @RequestParam(required = false) Date dataFim,
-			@Parameter(description = "Placa do veículo para pesquisa") @NotNull @RequestParam String placa) {
-		return "Teste dos POIs";
+	public ResponseEntity<List<PontoDeInteresseVO>> getResumos(
+			@Parameter(description = "Intervalo de data(início) para pesquisar resumo dos pontos de interesse") @NotNull @RequestParam(required = true) @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataInicio,
+			@Parameter(description = "Intervalo de data(fim) para pesquisar resumo dos pontos de interesse") @NotNull @RequestParam(required = true) @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataFim,
+			@Parameter(description = "Placa do veículo para pesquisa") @NotNull @RequestParam(required = false) String placa) {
+
+		List<PontoDeInteresseVO> tempoDeLocalizacaoComPontoDeInteresse = pontoDeInteresseService
+				.calcularTempoDeLocalizacaoComPontoDeInteresse(placa, dataInicio, dataFim);
+
+		return ResponseEntity.ok(tempoDeLocalizacaoComPontoDeInteresse);
 	}
 
 	@Operation(summary = "Inserir um novo ponto de interesse do cliente")
